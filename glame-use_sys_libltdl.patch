@@ -1,0 +1,38 @@
+--- glame-0.6.2/Makefile.am~	Thu Jun 27 07:32:47 2002
++++ glame-0.6.2/Makefile.am	Thu Jun 27 07:32:47 2002
+@@ -1,4 +1,4 @@
+-SUBDIRS = libltdl macros src doc data intl po
++SUBDIRS = macros src doc data intl po
+ 
+ EXTRA_DIST = TODO MAINTAINERS CREDITS BUGS autogen.sh glame.spec
+ 
+--- glame-0.6.2/configure.ac~	Thu Jun 27 07:33:27 2002
++++ glame-0.6.2/configure.ac	Thu Jun 27 07:33:27 2002
+@@ -404,6 +404,5 @@
+ 
+ AC_SUBST(LIBLTDL)
+ AC_SUBST(LTDLINCL)
+-AC_CONFIG_SUBDIRS(libltdl)
+ 
+ AC_OUTPUT(Makefile macros/Makefile doc/Makefile doc/pix/Makefile data/Makefile data/pixmaps/Makefile src/Makefile src/filter/Makefile src/swapfile/Makefile src/hash/Makefile src/plugins/Makefile src/include/Makefile src/gui/Makefile src/gui/edit_filter/Makefile src/glmid/Makefile src/gui/libgtkwaveform/Makefile src/gui/timeline/Makefile src/gui/util/Makefile intl/Makefile po/Makefile.in)
+--- glame-0.6.2/src/Makefile.am~	Thu Jun 27 07:51:27 2002
++++ glame-0.6.2/src/Makefile.am	Thu Jun 27 07:51:27 2002
+@@ -15,6 +15,6 @@
+ 	filter/libfilter.la \
+ 	hash/libhash.la \
+ 	swapfile/libswapfile.la \
+-	$(GLAME_LIBS) $(GLAME_DLIBS) $(LIBLTDL)
++	$(GLAME_LIBS) $(GLAME_DLIBS)
+ cglame_LDFLAGS = -export-dynamic -dlopen self
+ 
+--- glame-0.6.2/src/gui/Makefile.am~	Thu Jun 27 08:02:56 2002
++++ glame-0.6.2/src/gui/Makefile.am	Thu Jun 27 08:02:56 2002
+@@ -32,7 +32,7 @@
+         libgtkwaveform/libgtkwaveform.la timeline/libtimeline.la \
+ 	util/libglameguiutils.la \
+ 	$(GNOME_LIBDIR) $(GLAME_LIBS) $(GNOME_LIBS) $(GNOMEUI_LIBS) \
+-	$(XML_LIBS) -lm $(LIBLTDL)
++	$(XML_LIBS) -lm
+ glame_LDFLAGS = -export-dynamic -dlopen self
+ 
+ #wavetest_SOURCES = gtkwavedraw.c gtkwavedraw.h wavetest.c
