@@ -25,11 +25,11 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.0
 #BuildRequires:	fftw-devel	- only single precision version (libsfftw) supported
 BuildRequires:	gettext-devel
-%{!?_without_gnome:BuildRequires: gtk+-devel >= 1.2.0}
-%{!?_without_gnome:BuildRequires: gnome-libs-devel}
+%{!?_without_gnome:BuildRequires:	gtk+-devel >= 1.2.0}
+%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	ladspa-devel
-%{!?_without_gnome:BuildRequires: libglade-devel}
+%{!?_without_gnome:BuildRequires:	libglade-devel}
 BuildRequires:	libmad-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
