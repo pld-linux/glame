@@ -6,38 +6,38 @@
 Summary:	GNU/Linux Audio Mechanics
 Summary(pl):	GNU/Linux Audio Mechanics - program do obr鏏ki d德i瘯u
 Name:		glame
-Version:	1.0.3
-Release:	2
+Version:	2.0.1
+Release:	0.1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/glame/%{name}-%{version}.tar.gz
-# Source0-md5:	9dc47b94f1d3c64eff36d5e61375ff78
+# Source0-md5:	b18e93e8f5d2ed9cd56c4e8088a58f18
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-info_no_version.patch
 Patch2:		%{name}-use_sys_libltdl.patch
 Patch3:		%{name}-desktop.patch
-Patch4:		%{name}-libxml-vs-libglade.patch
-Patch5:		%{name}-libmad-nopc.patch
-Patch6:		%{name}-alsa1.patch
 URL:		http://glame.sourceforge.net/
-%{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
+%{?with_alsa:BuildRequires:	alsa-lib-devel >= 1.0.0}
+BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.0
 #BuildRequires:	fftw-single-devel (TODO: update for fftw3-single-devel)
-BuildRequires:	gettext-devel
-%{?with_gnome:BuildRequires:	gtk+-devel >= 1.2.0}
-%{?with_gnome:BuildRequires:	gnome-libs-devel}
+BuildRequires:	gettext-devel >= 0.11.5
+%{?with_gnome:BuildRequires:	gtk+2-devel >= 2:2.6.0}
+%{?with_gnome:BuildRequires:	libgnomeui-devel >= 2.0.0}
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	ladspa-devel
+BuildRequires:	lame-libs-devel
 %{?with_gnome:BuildRequires:	libglade-devel}
 BuildRequires:	libmad-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	libvorbis-devel
-BuildRequires:	libxml-devel >= 1.8.0
+BuildRequires:	libxml2-devel >= 2.0.0
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	texinfo
+# not ready: jack, liblrdf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,7 +54,7 @@ edytor d德i瘯 dla Linuksa i kompatybilnych z nim system闚.
 Summary:	GNOME-based GUI for GLAME
 Summary(pl):	Oparty na GNOME graficzny interfejs do GLAME
 Group:		X11/Applications/Sound
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description gui
 GNOME-based GUI for GLAME.
@@ -66,7 +66,7 @@ Oparty na GNOME graficzny interfejs do GLAME.
 Summary:	ALSA audio plugin for GLAME
 Summary(pl):	Wtyczka d德i瘯u ALSA dla GLAME
 Group:		Applications/Sound
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description audio-alsa
 Plugin for GLAME that allows playing sound through ALSA.
@@ -78,7 +78,7 @@ Wtyczka dla GLAME pozwalaj帷a na odtwarzanie d德i瘯u przez ALSA.
 Summary:	ESD audio plugin for GLAME
 Summary(pl):	Wtyczka d德i瘯u ESD dla GLAME
 Group:		Applications/Sound
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description audio-esd
 Plugin for GLAME that allows playing sound through ESD.
@@ -92,9 +92,6 @@ Wtyczka dla GLAME pozwalaj帷a na odtwarzanie d德i瘯u przez ESD.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
 
 %build
 %{__gettextize}
@@ -139,9 +136,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/glame/audio_io_oss.la
 %{_libdir}/glame/debug.la
 %{_libdir}/glame/tutorial.la
+# lame
+%attr(755,root,root) %{_libdir}/glame/file_mp3_out.so
+%{_libdir}/glame/file_mp3_out.la
+# vorbis
+%attr(755,root,root) %{_libdir}/glame/file_oggvorbis_out.so
+%{_libdir}/glame/file_oggvorbis_out.la
 %dir %{_datadir}/glame
 %{_datadir}/glame/scripts
-%{_infodir}/glame*
+%{_infodir}/glame*.info*
 
 %if %{with gnome}
 %files gui -f %{name}.lang
@@ -149,7 +152,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/glame
 %{_datadir}/glame/pixmaps
 %{_datadir}/glame/default-accels
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %attr(755,root,root) %{_libdir}/glame/mixer.so
 %attr(755,root,root) %{_libdir}/glame/normalize.so
 %attr(755,root,root) %{_libdir}/glame/resample.so
