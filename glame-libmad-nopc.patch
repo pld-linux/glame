@@ -1,0 +1,16 @@
+--- glame-1.0.1/configure.ac.orig	2003-07-19 18:37:28.000000000 +0200
++++ glame-1.0.1/configure.ac	2003-07-19 18:56:24.000000000 +0200
+@@ -418,11 +418,10 @@
+ AM_CONDITIONAL(EXPERIMENTAL, test x$experimental = xyes)
+ 
+ dnl check for libmad
+-ACG_PKG_CHECK_MODULES(MAD, mad,
++AC_CHECK_LIB([mad], [main],
+ [
+   AC_DEFINE(HAVE_LIBMAD,, [have mad library])
+-  GLAME_CFLAGS="$GLAME_CFLAGS $MAD_CFLAGS"
+-  GLAME_LIBS="$GLAME_LIBS $MAD_LIBS"
++  GLAME_LIBS="$GLAME_LIBS -lmad"
+ ], [])
+ 
+ dnl check for libvorbisfile
