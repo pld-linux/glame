@@ -7,36 +7,21 @@ diff -Nur glame-1.0.0/Makefile.am glame-1.0.0-patched/Makefile.am
  
  ACLOCAL_AMFLAGS = -I macros -I .
  
-diff -Nur glame-1.0.0/configure.ac glame-1.0.0-patched/configure.ac
---- glame-1.0.0/configure.ac	Sat Apr 19 20:26:05 2003
-+++ glame-1.0.0-patched/configure.ac	Wed Apr 23 00:16:22 2003
-@@ -408,6 +408,5 @@
+--- glame-2.0.1/configure.ac.orig	2005-03-28 19:04:18.000000000 +0200
++++ glame-2.0.1/configure.ac	2005-03-30 14:30:43.215748256 +0200
+@@ -134,7 +134,7 @@
+ 
+ 
+ AC_PROG_INSTALL
+-AC_LIBLTDL_CONVENIENCE
++AC_LIBLTDL_INSTALLABLE
+ dnl libtool pre-1.4 used INCLTDL, but LTDLINCL is the proper namespace.
+ if test -z "${LTDLINCL}" -a ! -z "${INCLTDL}"; then
+ 	LTDLINCL="${INCLTDL}"
+@@ -604,6 +604,5 @@
  
  AC_SUBST(LIBLTDL)
  AC_SUBST(LTDLINCL)
 -AC_CONFIG_SUBDIRS(libltdl)
  
- AC_OUTPUT(Makefile macros/Makefile doc/Makefile doc/pix/Makefile data/Makefile data/pixmaps/Makefile src/Makefile src/filter/Makefile src/swapfile/Makefile src/hash/Makefile src/plugins/Makefile src/include/Makefile src/gui/Makefile src/glmid/Makefile  intl/Makefile po/Makefile.in )
-diff -Nur glame-1.0.2/src/Makefile.am glame-1.0.2-patched/src/Makefile.am
---- glame-1.0.2/src/Makefile.am	Sun Dec 30 21:59:10 2001
-+++ glame-1.0.2-patched/src/Makefile.am	Wed Apr 23 00:17:04 2003
-@@ -15,6 +15,6 @@
- 	filter/libfilter.la \
- 	hash/libhash.la \
- 	swapfile/libswapfile.la \
--	$(GLAME_LIBS) $(GUILE_LIBS) $(LIBLTDL) @LTLIBINTL@
-+	$(GLAME_LIBS) $(GUILE_LIBS) -lltdl @LTLIBINTL@
- cglame_LDFLAGS = -export-dynamic -dlopen self
- 
-diff -Nur glame-1.0.2/src/gui/Makefile.am glame-1.0.2-patched/src/gui/Makefile.am
---- glame-1.0.2/src/gui/Makefile.am	Wed Apr  9 23:28:27 2003
-+++ glame-1.0.2-patched/src/gui/Makefile.am	Wed Apr 23 00:17:38 2003
-@@ -54,7 +54,7 @@
- 	../hash/libhash.la \
- 	../swapfile/libswapfile.la \
- 	$(GNOME_LIBDIR) $(GLAME_LIBS) $(GNOME_LIBS) $(GNOMEUI_LIBS) $(GUILE_LIBS) \
--	$(XML_LIBS) -lm $(LIBLTDL) @LTLIBINTL@
-+	$(XML_LIBS) -lm -lltdl @LTLIBINTL@
- glame_LDFLAGS = -export-dynamic -dlopen self
- 
- #wavetest_SOURCES = gtkwavedraw.c gtkwavedraw.h wavetest.c
+ AC_OUTPUT(Makefile macros/Makefile doc/Makefile doc/pix/Makefile data/Makefile data/pixmaps/Makefile src/Makefile src/filter/Makefile src/swapfile/Makefile src/hash/Makefile src/plugins/Makefile src/include/Makefile src/gui/Makefile src/glmid/Makefile intl/Makefile po/Makefile.in)
