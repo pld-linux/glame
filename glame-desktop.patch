@@ -1,0 +1,14 @@
+diff -Nur glame-1.0.0/src/gui/glame.desktop glame-1.0.0-desktop/src/gui/glame.desktop
+--- glame-1.0.0/src/gui/glame.desktop	Sat May 20 18:33:08 2000
++++ glame-1.0.0-desktop/src/gui/glame.desktop	Wed Apr 23 12:53:24 2003
+@@ -1,4 +1,3 @@
+-
+ [Desktop Entry]
+ Name=GLAME
+ Comment=GNU/Linux Audio Mechanics
+@@ -7,3 +6,5 @@
+ Terminal=false
+ MultipleArgs=false
+ Type=Application
++Categories=Multimedia;
++# vi: encoding=utf-8
