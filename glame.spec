@@ -10,6 +10,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/glame/%{name}-%{version}.tar.gz
+# Source0-md5:	11d345c4b3f2e7b0bdbf783e7535a6bd
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-info_no_version.patch
 Patch2:		%{name}-use_sys_libltdl.patch
