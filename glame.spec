@@ -44,7 +44,7 @@ edytor d¼wiêk dla Linuksa i kompatybilnych z nim systemów.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal -I macros
+%{__aclocal} -I macros
 %{__autoconf}
 %{__automake}
 %configure \
