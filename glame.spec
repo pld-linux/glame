@@ -18,6 +18,7 @@ BuildRequires:	esound-devel
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
+BuildRequires:	libxml-devel >= 1.8.0
 BuildRequires:	libxml2-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
