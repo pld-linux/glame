@@ -7,7 +7,7 @@ Summary:	GNU/Linux Audio Mechanics
 Summary(pl):	GNU/Linux Audio Mechanics - program do obróbki d¼wiêku
 Name:		glame
 Version:	1.0.3
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/glame/%{name}-%{version}.tar.gz
