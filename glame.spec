@@ -36,7 +36,7 @@ BuildRequires:	libltdl-devel
 BuildRequires:	libtool
 BuildRequires:	libvorbis-devel
 BuildRequires:	libxml-devel >= 1.8.0
-BuildRequires:	pkgconfig >= 0.9.0
+BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
