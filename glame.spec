@@ -5,11 +5,6 @@ Version:	0.5.2
 Release:	3
 License:	GPL
 Group:		X11/Applications
-Group(de):	X11/Applikationen
-Group(es):	X11/Aplicaciones
-Group(pl):	X11/Aplikacje
-Group(pt_BR):	X11/Aplicações
-Group(pt):	X11/Aplicações
 Source0:	ftp://download.sourceforge.net/pub/sourceforge/glame/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 URL:		http://glame.sourceforge.net/
