@@ -1,7 +1,7 @@
 Summary:	GNU/Linux Audio Mechanics
 Summary(pl):	GNU/Linux Audio Mechanics - program do obróbki d¼wiêku
 Name:		glame
-Version:	0.6.2
+Version:	1.0.0
 Release:	1
 License:	GPL
 Group:		X11/Applications
@@ -9,6 +9,7 @@ Source0:	http://download.sourceforge.net/glame/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-info_no_version.patch
 Patch2:		%{name}-use_sys_libltdl.patch
+Patch3:		%{name}-desktop.patch
 URL:		http://glame.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -38,6 +39,7 @@ edytor d¼wiêk dla Linuksa i kompatybilnych z nim systemów.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing
@@ -53,11 +55,11 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
+install -d $RPM_BUILD_ROOT%{_datadir}/applications
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Multimediadir=%{_applnkdir}/Multimedia
+	Multimediadir=%{_datadir}/applications
 
 %find_lang %{name}
 
@@ -76,5 +78,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/glame
 %{_datadir}/glame
-%{_applnkdir}/Multimedia/*
+%{_datadir}/applications/*
 %{_infodir}/glame*
