@@ -1,35 +1,36 @@
 #
 # Conditional build:
-# _without_alsa		- don't build ALSA audio plugin
-# _without_gnome	- build without GNOME-based GUI
+%bcond_without	alsa	# don't build ALSA audio plugin
+%bcond_without	gnome	# build without GNOME-based GUI
 #
 Summary:	GNU/Linux Audio Mechanics
 Summary(pl):	GNU/Linux Audio Mechanics - program do obróbki d¼wiêku
 Name:		glame
-Version:	1.0.1
+Version:	1.0.2
 Release:	1
 License:	GPL
 Group:		Applications/Sound
 Source0:	http://dl.sourceforge.net/glame/%{name}-%{version}.tar.gz
-# Source0-md5:	3e225128de5ab563954559205f1228df
+# Source0-md5:	6d4c76891257dab0d9cee18d21a5db9a
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-info_no_version.patch
 Patch2:		%{name}-use_sys_libltdl.patch
 Patch3:		%{name}-desktop.patch
 Patch4:		%{name}-libxml-vs-libglade.patch
 Patch5:		%{name}-libmad-nopc.patch
+Patch6:		%{name}-alsa1.patch
 URL:		http://glame.sourceforge.net/
-%{!?_without_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
+%{?with_alsa:BuildRequires:	alsa-lib-devel >= 0.9.0}
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.0
-#BuildRequires:	fftw-devel	- only single precision version (libsfftw) supported
+#BuildRequires:	fftw-single-devel (TODO: update for fftw3-single-devel)
 BuildRequires:	gettext-devel
-%{!?_without_gnome:BuildRequires:	gtk+-devel >= 1.2.0}
-%{!?_without_gnome:BuildRequires:	gnome-libs-devel}
+%{?with_gnome:BuildRequires:	gtk+-devel >= 1.2.0}
+%{?with_gnome:BuildRequires:	gnome-libs-devel}
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	ladspa-devel
-%{!?_without_gnome:BuildRequires:	libglade-devel}
+%{?with_gnome:BuildRequires:	libglade-devel}
 BuildRequires:	libmad-devel
 BuildRequires:	libltdl-devel
 BuildRequires:	libtool
@@ -93,9 +94,9 @@ Wtyczka dla GLAME pozwalaj±ca na odtwarzanie d¼wiêku przez ESD.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
-rm -f missing
 %{__gettextize}
 %{__libtoolize}
 %{__aclocal} -I macros
@@ -103,7 +104,7 @@ rm -f missing
 %{__automake}
 %configure \
 	--disable-static \
-	%{?_without_gnome:--disable-gui}
+	%{!?with_gnome:--disable-gui}
 
 %{__make}
 
@@ -142,7 +143,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glame/scripts
 %{_infodir}/glame*
 
-%if 0%{!?_without_gnome:1}
+%if %{with gnome}
 %files gui -f %{name}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/glame
@@ -157,7 +158,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/glame/resample.la
 %endif
 
-%if 0%{!?_without_alsa:1}
+%if %{with alsa}
 %files audio-alsa
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/glame/audio_io_alsa.so
