@@ -6,9 +6,10 @@ diff -Nur glame-1.0.0/src/gui/glame.desktop glame-1.0.0-desktop/src/gui/glame.de
  [Desktop Entry]
  Name=GLAME
  Comment=GNU/Linux Audio Mechanics
-@@ -7,3 +6,5 @@
+@@ -7,3 +6,6 @@
  Terminal=false
  MultipleArgs=false
  Type=Application
++Encoding=UTF-8
 +Categories=Application;Multimedia;
 +# vi: encoding=utf-8
