@@ -1,0 +1,15 @@
+diff -Nru glame-0.2.0/doc/glame.texi glame-0.2.0.new/doc/glame.texi
+--- glame-0.2.0/doc/glame.texi	Mon Apr 17 11:27:29 2000
++++ glame-0.2.0.new/doc/glame.texi	Sun Oct 29 19:18:28 2000
+@@ -48,9 +48,9 @@
+ @node Top, Copying, , (dir)
+ @top The GLAME Manual
+ 
+-@dircategory Sound
++@dircategory Miscellaneous:
+ @direntry
+-* GNU/Linux Audio Mechanics (GLAME): (glame).	A capable audio editor.
++* (GLAME): (glame).			A capable audio editor
+ @end direntry
+ 
+ This text documents GNU/Linux Audio Mechanics 
