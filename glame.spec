@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%dir %{_libdir}/glame
+%{_libdir}/glame
 %{_datadir}/glame
 %{_applnkdir}/Multimedia/*
 %{_infodir}/glame*
