@@ -10,5 +10,5 @@ diff -Nur glame-1.0.0/src/gui/glame.desktop glame-1.0.0-desktop/src/gui/glame.de
  Terminal=false
  MultipleArgs=false
  Type=Application
-+Categories=Multimedia;
++Categories=Application;Multimedia;
 +# vi: encoding=utf-8
