@@ -11,5 +11,5 @@ diff -Nur glame-1.0.0/src/gui/glame.desktop glame-1.0.0-desktop/src/gui/glame.de
  MultipleArgs=false
  Type=Application
 +Encoding=UTF-8
-+Categories=Application;Multimedia;
++Categories=GTK;GNOME;Audio;
 +# vi: encoding=utf-8
