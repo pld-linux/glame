@@ -40,9 +40,11 @@ edytor d¼wiêk dla Linuksa i kompatybilnych z nim systemów.
 %patch -p1
 
 %build
+#rm -f missing
 #libtoolize --copy --force
 #aclocal -I macros
 #autoconf
+#automake -a -c
 %configure2_13 \
 	--disable-static \
 	%{?_without_gnome:--disable-gui}
@@ -51,11 +53,11 @@ edytor d¼wiêk dla Linuksa i kompatybilnych z nim systemów.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 install src/gui/glame.desktop $RPM_BUILD_ROOT%{_applnkdir}/Multimedia
 
 gzip -9nf AUTHORS BUGS CREDITS MAINTAINERS NEWS README TODO
@@ -77,8 +79,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %dir %{_libdir}/glame
-%attr(755,root,root) %{_libdir}/glame/*.so
-#%attr(755,root,root) %{_libdir}/glame/*.la	# is it needed?
 %{_datadir}/glame
 %{_applnkdir}/Multimedia/*
 %{_infodir}/*
