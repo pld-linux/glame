@@ -17,26 +17,26 @@ diff -Nur glame-1.0.0/configure.ac glame-1.0.0-patched/configure.ac
 -AC_CONFIG_SUBDIRS(libltdl)
  
  AC_OUTPUT(Makefile macros/Makefile doc/Makefile doc/pix/Makefile data/Makefile data/pixmaps/Makefile src/Makefile src/filter/Makefile src/swapfile/Makefile src/hash/Makefile src/plugins/Makefile src/include/Makefile src/gui/Makefile src/glmid/Makefile  intl/Makefile po/Makefile.in )
-diff -Nur glame-1.0.0/src/Makefile.am glame-1.0.0-patched/src/Makefile.am
---- glame-1.0.0/src/Makefile.am	Sun Dec 30 21:59:10 2001
-+++ glame-1.0.0-patched/src/Makefile.am	Wed Apr 23 00:17:04 2003
+diff -Nur glame-1.0.2/src/Makefile.am glame-1.0.2-patched/src/Makefile.am
+--- glame-1.0.2/src/Makefile.am	Sun Dec 30 21:59:10 2001
++++ glame-1.0.2-patched/src/Makefile.am	Wed Apr 23 00:17:04 2003
 @@ -15,6 +15,6 @@
  	filter/libfilter.la \
  	hash/libhash.la \
  	swapfile/libswapfile.la \
--	$(GLAME_LIBS) $(GLAME_DLIBS) $(LIBLTDL)
-+	$(GLAME_LIBS) $(GLAME_DLIBS) -lltdl
+-	$(GLAME_LIBS) $(GUILE_LIBS) $(LIBLTDL) @LTLIBINTL@
++	$(GLAME_LIBS) $(GUILE_LIBS) -lltdl @LTLIBINTL@
  cglame_LDFLAGS = -export-dynamic -dlopen self
  
-diff -Nur glame-1.0.0/src/gui/Makefile.am glame-1.0.0-patched/src/gui/Makefile.am
---- glame-1.0.0/src/gui/Makefile.am	Wed Apr  9 23:28:27 2003
-+++ glame-1.0.0-patched/src/gui/Makefile.am	Wed Apr 23 00:17:38 2003
+diff -Nur glame-1.0.2/src/gui/Makefile.am glame-1.0.2-patched/src/gui/Makefile.am
+--- glame-1.0.2/src/gui/Makefile.am	Wed Apr  9 23:28:27 2003
++++ glame-1.0.2-patched/src/gui/Makefile.am	Wed Apr 23 00:17:38 2003
 @@ -54,7 +54,7 @@
  	../hash/libhash.la \
  	../swapfile/libswapfile.la \
- 	$(GNOME_LIBDIR) $(GLAME_LIBS) $(GNOME_LIBS) $(GNOMEUI_LIBS) \
--	$(XML_LIBS) -lm $(LIBLTDL)
-+	$(XML_LIBS) -lm -lltdl
+ 	$(GNOME_LIBDIR) $(GLAME_LIBS) $(GNOME_LIBS) $(GNOMEUI_LIBS) $(GUILE_LIBS) \
+-	$(XML_LIBS) -lm $(LIBLTDL) @LTLIBINTL@
++	$(XML_LIBS) -lm -lltdl @LTLIBINTL@
  glame_LDFLAGS = -export-dynamic -dlopen self
  
  #wavetest_SOURCES = gtkwavedraw.c gtkwavedraw.h wavetest.c
