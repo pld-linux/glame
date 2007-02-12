@@ -4,7 +4,7 @@
 %bcond_without	gnome	# build without GNOME-based GUI
 #
 Summary:	GNU/Linux Audio Mechanics
-Summary(pl):	GNU/Linux Audio Mechanics - program do obróbki d¼wiêku
+Summary(pl.UTF-8):   GNU/Linux Audio Mechanics - program do obrÃ³bki dÅºwiÄ™ku
 Name:		glame
 Version:	2.0.1
 Release:	0.1
@@ -45,46 +45,46 @@ GLAME is targeted to be the GIMP for audio processing. Its developer
 want to provide a powerful, fast, stable and easily extensible sound
 editor for Linux and compatible systems.
 
-%description -l pl
-GLAME ma byæ odpowiednikiem GIMP-a do obróbki d¼wiêku. Jego twórcy
-chc± daæ w pe³ni funkcjonalny, szybki, stabilny i ³atwo rozszerzalny
-edytor d¼wiêk dla Linuksa i kompatybilnych z nim systemów.
+%description -l pl.UTF-8
+GLAME ma byÄ‡ odpowiednikiem GIMP-a do obrÃ³bki dÅºwiÄ™ku. Jego twÃ³rcy
+chcÄ… daÄ‡ w peÅ‚ni funkcjonalny, szybki, stabilny i Å‚atwo rozszerzalny
+edytor dÅºwiÄ™k dla Linuksa i kompatybilnych z nim systemÃ³w.
 
 %package gui
 Summary:	GNOME-based GUI for GLAME
-Summary(pl):	Oparty na GNOME graficzny interfejs do GLAME
+Summary(pl.UTF-8):   Oparty na GNOME graficzny interfejs do GLAME
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
 %description gui
 GNOME-based GUI for GLAME.
 
-%description gui -l pl
+%description gui -l pl.UTF-8
 Oparty na GNOME graficzny interfejs do GLAME.
 
 %package audio-alsa
 Summary:	ALSA audio plugin for GLAME
-Summary(pl):	Wtyczka d¼wiêku ALSA dla GLAME
+Summary(pl.UTF-8):   Wtyczka dÅºwiÄ™ku ALSA dla GLAME
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
 %description audio-alsa
 Plugin for GLAME that allows playing sound through ALSA.
 
-%description audio-alsa -l pl
-Wtyczka dla GLAME pozwalaj±ca na odtwarzanie d¼wiêku przez ALSA.
+%description audio-alsa -l pl.UTF-8
+Wtyczka dla GLAME pozwalajÄ…ca na odtwarzanie dÅºwiÄ™ku przez ALSA.
 
 %package audio-esd
 Summary:	ESD audio plugin for GLAME
-Summary(pl):	Wtyczka d¼wiêku ESD dla GLAME
+Summary(pl.UTF-8):   Wtyczka dÅºwiÄ™ku ESD dla GLAME
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
 %description audio-esd
 Plugin for GLAME that allows playing sound through ESD.
 
-%description audio-esd -l pl
-Wtyczka dla GLAME pozwalaj±ca na odtwarzanie d¼wiêku przez ESD.
+%description audio-esd -l pl.UTF-8
+Wtyczka dla GLAME pozwalajÄ…ca na odtwarzanie dÅºwiÄ™ku przez ESD.
 
 %prep
 %setup -q
