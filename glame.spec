@@ -4,7 +4,7 @@
 %bcond_without	gnome	# build without GNOME-based GUI
 #
 Summary:	GNU/Linux Audio Mechanics
-Summary(pl.UTF-8):   GNU/Linux Audio Mechanics - program do obróbki dźwięku
+Summary(pl.UTF-8):	GNU/Linux Audio Mechanics - program do obróbki dźwięku
 Name:		glame
 Version:	2.0.1
 Release:	0.1
@@ -52,7 +52,7 @@ edytor dźwięk dla Linuksa i kompatybilnych z nim systemów.
 
 %package gui
 Summary:	GNOME-based GUI for GLAME
-Summary(pl.UTF-8):   Oparty na GNOME graficzny interfejs do GLAME
+Summary(pl.UTF-8):	Oparty na GNOME graficzny interfejs do GLAME
 Group:		X11/Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -64,7 +64,7 @@ Oparty na GNOME graficzny interfejs do GLAME.
 
 %package audio-alsa
 Summary:	ALSA audio plugin for GLAME
-Summary(pl.UTF-8):   Wtyczka dźwięku ALSA dla GLAME
+Summary(pl.UTF-8):	Wtyczka dźwięku ALSA dla GLAME
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
@@ -76,7 +76,7 @@ Wtyczka dla GLAME pozwalająca na odtwarzanie dźwięku przez ALSA.
 
 %package audio-esd
 Summary:	ESD audio plugin for GLAME
-Summary(pl.UTF-8):   Wtyczka dźwięku ESD dla GLAME
+Summary(pl.UTF-8):	Wtyczka dźwięku ESD dla GLAME
 Group:		Applications/Sound
 Requires:	%{name} = %{version}-%{release}
 
